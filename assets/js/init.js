@@ -5,60 +5,44 @@ jQuery(document).ready(function () {
 	if ($textarea.length == 1) {
 		$textarea.attr('id', 'code');
 
-		// Set up a function for the fold functionality.
-		var foldFunction = CodeMirror.newFoldFunction(CodeMirror.tagRangeFinder);
 		
-		//var editor = CodeMirror.fromTextArea($textarea[0]);
-
-		// Start up the editor with the proper configuration options.
-		var editor2 = CodeMirror.fromTextArea($textarea[0], {
-
-			// Having this can highlight both HTML and XML.
-			mode: 'htmlmixed',
-
-			// This is a good theme.
-			theme: 'elegant',
-
-			// Some stuff to do with the keyboard shortcuts.
-			extraKeys: {
-				// The following closes the tag when '>' or '/' are pressed.
-				"'>'": function (cm) {
-					cm.closeTag(cm, '>');
-				},
-				"'/'": function (cm) {
-					cm.closeTag(cm, '/');
-				},
-				// Trigger the fold action via shortcut.
-				"Ctrl-Q": function (cm) {
-					foldFunction(cm, cm.getCursor().line);
-				},
-				// TODO: Maybe. Attach the Ctrl+S shortcut to form submission.
-				//"Ctrl-S": function(cm) { cm.save(); console.log(cm.getTextArea()); }
-			},
-
-			// Empty lines are wiped off their whitespace.
-			autoClearEmptyLines: true,
-			// Show line numbers.
-			lineNumbers: true,
-			// Autofocus the editor on load.
-			autofocus: true,
-			// Various things we are going to be doing on cursor activity event.
-			onCursorActivity: function () {
-
-				editor.setLineClass(hlLine, null, null);
-				hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline");
-
-				// Set the class for the line highlighting.
+      /*var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: {name: "xml", alignCDATA: true},
+        lineNumbers: true
+      });*/
+	  
+	  
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+		value: '',
+		  mode: "text/html",
+		  tabMode: "indent",
+		  lineNumbers: true,
+		  autoClearEmptyLines: true,
+		  autofocus: true,
+		  extraKeys: {
+                "' '": function(cm) { CodeMirror.xmlHint(cm, ' '); },
+                "'<'": function(cm) { CodeMirror.xmlHint(cm, '<'); },
+                "Ctrl-Space": function(cm) { CodeMirror.xmlHint(cm, ''); }
+            },
+            autoCloseTags: true
+		  
+		  });
+		  var hlLine = editor.addLineClass(0, "background", "activeline");
+			editor.on("cursorActivity", function() {
 				editor.matchHighlight("CodeMirror-matchhighlight");
-			},
-
-			// Trigger the fold action when clicking on gutter.
-			onGutterClick: foldFunction,
-
+				var cur = editor.getLineHandle(editor.getCursor().line);
+				if (cur != hlLine) {
+				editor.removeLineClass(hlLine, "background", "activeline");
+				hlLine = editor.addLineClass(cur, "background", "activeline");
+			}
 		});
-		
-		// Highlight the first line since the editor is set to autofocus on load.
-		hlLine = editor.setLineClass(0, null, "activeline");
+    
+    
 	}
+	
 
+
+
+	
 });
+    
