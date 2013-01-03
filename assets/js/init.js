@@ -7,9 +7,11 @@ jQuery(document).ready(function () {
 
 		// Set up a function for the fold functionality.
 		var foldFunction = CodeMirror.newFoldFunction(CodeMirror.tagRangeFinder);
+		
+		//var editor = CodeMirror.fromTextArea($textarea[0]);
 
 		// Start up the editor with the proper configuration options.
-		var editor = CodeMirror.fromTextArea($textarea[0], {
+		var editor2 = CodeMirror.fromTextArea($textarea[0], {
 
 			// Having this can highlight both HTML and XML.
 			mode: 'htmlmixed',
