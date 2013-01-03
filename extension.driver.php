@@ -34,8 +34,8 @@
 				Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/codemirror/assets/css/codemirror.css', 'screen', 3066704);
 				Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/codemirror/assets/css/codemirror-symphony.css', 'screen', 3066706);
 				Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/codemirror/assets/css/codemirror-elegant.css', 'screen', 3066705);
-				Administration::instance()->Page->addScriptToHead(URL . '/extensions/codemirror/assets/js/codemirror.js', 3066701);
-				Administration::instance()->Page->addScriptToHead(URL . '/extensions/codemirror/assets/js/xml.js', 3066702);
+				Administration::instance()->Page->addScriptToHead(URL . '/extensions/codemirror/assets/js/codemirror-compressed.js', 3066701);
+				//Administration::instance()->Page->addScriptToHead(URL . '/extensions/codemirror/assets/js/xml.js', 3066702);
 				Administration::instance()->Page->addScriptToHead(URL . '/extensions/codemirror/assets/js/init2.js', 3066703);
 				$this->adminHeadersAppended = true;
 			}
