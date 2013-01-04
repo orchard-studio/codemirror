@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
 			lineNumbers: true,
 			autoClearEmptyLines: true,
 			autofocus: true,
-			profile: 'xml',
+			profile: 'html',
 			autoCloseTags: true
 			  
 		});
@@ -32,9 +32,7 @@ jQuery(document).ready(function () {
 				editor.removeLineClass(hlLine, "background", "activeline");
 				hlLine = editor.addLineClass(cur, "background", "activeline");
 			}
-		});
-    
-    
+		});    
 	}
 	
 
