@@ -19,14 +19,11 @@ jQuery(document).ready(function () {
 		  lineNumbers: true,
 		  autoClearEmptyLines: true,
 		  autofocus: true,
-		  extraKeys: {
-                "' '": function(cm) { CodeMirror.xmlHint(cm, ' '); },
-                "'<'": function(cm) { CodeMirror.xmlHint(cm, '<'); },
-                "Ctrl-Space": function(cm) { CodeMirror.xmlHint(cm, ''); }
-            },
-            autoCloseTags: true
+		  profile: 'xhtml',
+          autoCloseTags: true
 		  
 		  });
+		 
 		  var hlLine = editor.addLineClass(0, "background", "activeline");
 			editor.on("cursorActivity", function() {
 				editor.matchHighlight("CodeMirror-matchhighlight");
@@ -39,6 +36,8 @@ jQuery(document).ready(function () {
     
     
 	}
+	
+
 	
 
 
