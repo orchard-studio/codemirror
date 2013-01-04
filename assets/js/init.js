@@ -4,22 +4,15 @@ jQuery(document).ready(function () {
 
 	if ($textarea.length == 1) {
 		$textarea.attr('id', 'code');
-
 		
-      /*var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode: {name: "xml", alignCDATA: true},
-        lineNumbers: true
-      });*/
-	  
-	  
 		var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 			value: '',
 			mode: "text/html",
-			//tabMode: "indent",
+			tabMode: "indent",
 			lineNumbers: true,
 			autoClearEmptyLines: true,
 			autofocus: true,
-			profile: 'html',
+			profile: 'xhtml',
 			autoCloseTags: true
 			  
 		});
@@ -35,11 +28,4 @@ jQuery(document).ready(function () {
 		});    
 	}
 	
-
-	
-
-
-
-	
 });
-    
