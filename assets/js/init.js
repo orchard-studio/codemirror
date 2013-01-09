@@ -28,4 +28,12 @@ jQuery(document).ready(function () {
 		});    
 	}
 	
+	
+	
+});
+jQuery(document).keypress("s",function(e) {
+		if(e.ctrlKey && e.shiftKey){
+			//jQuery("#contents form ").submit();
+			jQuery("#contents form :submit:first").click();
+		}
 });

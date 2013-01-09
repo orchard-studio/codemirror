@@ -3,13 +3,14 @@ emmet.require('resources').setVocabulary({
 		abbreviations: {
 			'egr+': 'div#head>(ul#nav>li*3>(div.subnav>p)+(div.othernav))+div#footer',
 			'demo': '<div id="demo"></div>',
-			'tm+': 'tm>html:5',
+			'tm+': 'tm>!',
 			'tm': '<xsl:template match="" mode="">',
 			'tmatch': 'tm',
 			'tn': '<xsl:template name="">',
 			'tname': 'tn',
 			'call': '<xsl:call-template name=""/>',
 			'ap': '<xsl:apply-templates select="" mode=""/>',
+			'apblank': '<xsl:apply-templates/>',
 			'api': '<xsl:apply-imports/>',
 			'imp': '<xsl:import href=""/>',
 			'inc': '<xsl:include href=""/>',
@@ -54,6 +55,6 @@ emmet.require('resources').setVocabulary({
 			'erb': '<%= |${child} %>'
 		},
 		
-		filters: 'bem,html'
+		filters: 'html'
 	}
 });
