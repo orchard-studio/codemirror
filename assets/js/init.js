@@ -1,10 +1,11 @@
 jQuery(document).ready(function () {
 
 	var $textarea = jQuery('textarea.code:first:visible');
+	var $width = $textarea.innerWidth();
 
 	if ($textarea.length == 1) {
 		$textarea.attr('id', 'code');
-		
+		$textarea.attr('width',$width);
 		var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 			value: '',
 			mode: "text/html",
@@ -16,7 +17,15 @@ jQuery(document).ready(function () {
 			autoCloseTags: true
 			  
 		});
-			 
+		
+		editor.setSize($width);
+
+		$(window).resize(function(){
+			var $width = $textarea.innerWidth();
+			editor.setSize($width);
+
+		});
+
 		var hlLine = editor.addLineClass(0, "background", "activeline");
 			editor.on("cursorActivity", function() {
 				editor.matchHighlight("CodeMirror-matchhighlight");
@@ -28,12 +37,4 @@ jQuery(document).ready(function () {
 		});    
 	}
 	
-	
-	
-});
-jQuery(document).keypress("s",function(e) {
-		if(e.ctrlKey && e.shiftKey){
-			//jQuery("#contents form ").submit();
-			jQuery("#contents form :submit:first").click();
-		}
 });
